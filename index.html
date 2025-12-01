@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arcade Weather Dashboard</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="crt-overlay"></div>
+
+    <div class="dashboard-container">
+        <header>
+            <div>
+                <h1>Weather_Forecast v.1.0</h1>
+                <small id="timestamp">System Ready...</small>
+            </div>
+            <div class="controls">
+                <button onclick="toggleTheme()">THEME</button>
+                <button onclick="toggleUnit()">°C/°F</button>
+                <button onclick="refreshData()">REFRESH</button>
+            </div>
+        </header>
+
+        <section>
+            <div class="search-box">
+                <input type="text" id="cityInput" placeholder="ENTER CITY NAME..." onkeypress="handleEnter(event)">
+                <button class="controls-btn search-btn" onclick="searchCity()">SEARCH</button>
+                <button class="controls-btn save-btn" onclick="saveToFavorites()">★ SAVE</button>
+            </div>
+            <div id="favoritesList" class="favorites-bar">
+                </div>
+        </section>
+
+        <div id="loadingIndicator" class="loading">LOADING DATA...</div>
+
+        <main id="mainContent">
+            <div class="weather-main">
+                <div class="current-info">
+                    <h2 id="cityName">JAKARTA, ID</h2>
+                    <img id="weatherIcon" src="" alt="Weather Icon">
+                    <div id="tempDisplay" class="temp-big">--</div>
+                    <div id="weatherDesc">WAITING INPUT...</div>
+                </div>
+
+                <div class="weather-details">
+                    <div class="detail-card">
+                        <div class="detail-label">HUMIDITY</div>
+                        <div class="detail-value" id="humidity">--%</div>
+                    </div>
+                    <div class="detail-card">
+                        <div class="detail-label">WIND SPD</div>
+                        <div class="detail-value" id="windSpeed">-- m/s</div>
+                    </div>
+                    <div class="detail-card">
+                        <div class="detail-label">MIN TEMP</div>
+                        <div class="detail-value" id="tempMin">--°</div>
+                    </div>
+                    <div class="detail-card">
+                        <div class="detail-label">MAX TEMP</div>
+                        <div class="detail-value" id="tempMax">--°</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="forecast-container">
+                <div class="forecast-title">> 5-DAY PREDICTION SEQUENCE</div>
+                <div class="forecast-grid" id="forecastGrid">
+                    </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
